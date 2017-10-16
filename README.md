@@ -220,11 +220,87 @@ class Developer extends Person {
 3. Produces side effects.
 
 ## Object Oriented Programming
-ES6 class notation or prototype
+ES6 class syntax or prototype. Class is like a blue print and object is the instance being made following the instructions.
 ```Javascript
   function Person(name) {
     this.name = name;
   }
   var wilson = new Person("Wilson");
+  Person.prototype.sayHello = function() {
+    console.log("Hello");
+  }
+  wilson.sayHello();
 ```
+
+# Java
+## Data Structure
+### BST
+```Java
+  public class BST {
+    private Node root = null;
+    public int length = 0;
+    public BST () {
+      
+    }
+    
+    public static void main(String args[]) {
+        BST bst = new BST();
+        bst.insert(3);
+        bst.insert(5);
+        bst.insert(1);
+        bst.display();
+    }
+    
+    class Node {
+      public int data;
+      public Node left;
+      public Node right;
+      public Node (int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+      }
+    }
+    
+    public void insert(int data) {
+      if (this.root == null) {
+        this.root = new Node(data);
+      } else {
+        insertRecur(this.root, data);
+      }
+    }
+    
+    private void insertRecur(Node node, int data) {
+      if (node.data < data) {
+        if(node.right != null) {
+            insertRecur(node.right, data);
+        } else {
+            node.right = new Node(data);
+        }
+      } 
+      else {
+        if(node.left != null) {
+            insertRecur(node.left, data);
+        } else {
+            node.left = new Node(data);
+        }
+      }
+    }
+    
+    public void display() {
+      displayRecur(this.root);
+    }
+    
+    private void displayRecur(Node node) {
+      if ( node != null ) {
+        displayRecur(node.left);
+        System.out.println("The data is: " + node.data);
+        displayRecur(node.right);
+      }
+    }
+  }
+  
+```
+
+## Sorting
 
