@@ -112,6 +112,19 @@ var person = {
 
 person.sayHello();
 ```
+## Apply, call, bind
+
+```Javascript
+var square = {
+  width: 3
+}
+
+function getArea() {
+  console.log("Hello my name is " + this.name);
+}
+
+greeting.apply(square, [])
+```
 
 ## ES6
 ### Arrows 
@@ -221,20 +234,44 @@ class Developer extends Person {
 
 ## Object Oriented Programming
 ES6 class syntax or prototype. Class is like a blue print and object is the instance being made following the instructions.
+1. Encapsulation
+2. Override && Overload
+3. Polymorphism
 ```Javascript
   function Person(name) {
     this.name = name;
   }
   var wilson = new Person("Wilson");
   Person.prototype.sayHello = function() {
-    console.log("Hello");
+    console.log("Hello my name is " + this.name);
   }
   wilson.sayHello();
 ```
-
-# Java
-## Data Structure
-### BST
+```Java 
+  public class Person() {
+    private String name;
+    public Person(String name) {
+      this.name = name;
+    }
+    public void sayHello() {
+      System.out.println("Hello my name is " + name);
+    }
+  }
+  
+  public class Man extends Person() {
+    public Man(String name) {
+      super(name);
+    }
+    public void sayHello() {
+      super.sayHello();
+    }
+    public void sayHello(Person person) {
+      System.out.println("Hello " + person.name + ". It\'s nice to meet you.");
+    }
+  }
+```
+# Data Structure
+## BST
 ```Java
   public class BST {
     private Node root = null;
@@ -301,6 +338,101 @@ ES6 class syntax or prototype. Class is like a blue print and object is the inst
   }
   
 ```
+## LinkedList
+```Java
+public class LinkedList {
+  private Node root;
+  class Node {
+    private Node next;
+    private int data;
+    Node(int data) {
+      this.data = data;
+      this.next = null;
+    }
+  }
+  
+}
+```
+## Double LinkedList
 
-## Sorting
+## Queue && Stack
+
+# Sorting
+
+## Insertion
+```Javascript
+  function insertionSort( arr ) {
+    for(var i = 0; i < arr.length; i++) {
+      var selectedValue = arr[i];
+      for(var j = i-1; j > -1 && arr[j] > selectedValue; j--) {
+        arr[j+1] = arr[j];
+      }
+      arr[j+1] = selectedValue;
+    }
+    return arr;
+  }
+```
+## Selection
+```Javascript
+function selectionSort(arr) {
+  for( var i=0; i< arr.length; i++) {
+    var minIndex = i;
+    var min = arr[i];
+    for(var j=i+1; j<arr.length; j++) {
+      if (arr[j] < min) {
+        min = arr[j];
+        minIndex = j;
+      }
+    }
+    if (minIndex != i) {
+      var temp = arr[i];
+      arr[i] = min;
+      arr[minIndex] = temp;
+    }
+  }
+  return arr;
+}
+
+```
+## MergeSort
+
+```Javascript
+function mergeSort(arr) {
+  if(arr.length == 1) return arr;
+
+  var mid = arr.length/2;
+  var arrayLeft = mergeSort(arr.slice(0, mid));
+  var arrayRight = mergeSort(arr.slice(mid));
+  return merge(arrayLeft, arrayRight);
+}
+
+function merge(arr1, arr2) {
+  var i = 0;
+  var j = 0;
+  var result = [];
+  while( i < arr1.length && j < arr2.length ) {
+    if( arr1[i] < arr2[j] ) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
+    }
+  }
+  
+  while( i < arr1.length ) {
+    result.push(arr1[i]);
+    i++;
+  }
+  
+  while( j < arr2.length ) {
+    result.push(arr2[j]);
+    j++
+  }
+  
+  return result;
+}
+
+```
+
 
