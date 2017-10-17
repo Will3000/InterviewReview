@@ -112,18 +112,21 @@ var person = {
 
 person.sayHello();
 ```
-## Apply, call, bind
+## Apply, Call, Bind
 
 ```Javascript
 var square = {
-  width: 3
+  nums: [5,1,3]
 }
 
-function getArea() {
-  console.log("Hello my name is " + this.name);
+function sum(arg1) {
+  return arg1 + this.nums.reduce((result, current) =>{
+    return result + current;
+  });
 }
 
-greeting.apply(square, [])
+sum.apply(square, [2]);
+sum.call(square, 2);
 ```
 
 ## ES6
