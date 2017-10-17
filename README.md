@@ -353,7 +353,12 @@ public class LinkedList {
       this.next = null;
     }
   }
-  
+  public void push(int data) {
+    
+  }
+  private void pushRecur(Node node. int data) {
+    
+  }
 }
 ```
 ## Double LinkedList
@@ -437,5 +442,25 @@ function merge(arr1, arr2) {
 }
 
 ```
+
+# REST APIs
+* Resource is an object or representation of something, which has some associated data with it and there can be set of methods to operate on it. Posts, Users are resources and create, read, update, delete are operations to be performed on these resources.
+* URL (Uniform Resource Locator) is a path through which a recource can be located and some actions can be performed on it.
+
+## Endpoint
+* `GET /posts` get the list of all posts
+* `GET /posts/2` get the post with id 2
+* `DELETE /posts/2` delete the post with id 2
+* Methods `GET, POST, PUT, DELETE`
+
+## HTTP response status codes
+* 200 OK 
+* 301 Redirect
+* 400 Bad Reuqest, 401 Unauthorized, 403 Forbidden, 404 Not Found
+* 500 Internal Server Error, 503 Server Unavailable
+
+## Passing Data
+
+* `GET /posts?sort=rank_asc&category=technology`
 
 
